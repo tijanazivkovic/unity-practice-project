@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     [SerializeField, Range(1f, 5f)] private float speed = 5f;
 
+    [SerializeField] Rigidbody rigidbody;
+
     private void Awake()
     {
         
@@ -35,7 +37,12 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         GetInput();
-        Move();   
+        // Move();  // basic movement implementation
+    }
+
+    private void FixedUpdate()
+    {
+        Move();
     }
 
     private void GetInput()
@@ -47,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         Vector3 changePosition = new Vector3(horizontal, 0f, vertical);
-        transform.Translate(changePosition * Time.deltaTime * speed);
+        // transform.Translate(changePosition * Time.deltaTime * speed);    // basic movement implementation
+        Vector3 goToPosition = transform.position + changePosition * speed * Time.deltaTime;
+        rigidbody.MovePosition(goToPosition);
     }
 
     private void OnDestroy()
