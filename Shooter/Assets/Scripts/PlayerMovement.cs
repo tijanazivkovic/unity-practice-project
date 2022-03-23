@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody rigidbody;
     [SerializeField] Camera cam;
 
+    [SerializeField] Weapon weapon;
+
     private void Awake()
     {
         
@@ -40,6 +42,16 @@ public class PlayerMovement : MonoBehaviour
         GetInput();
         // Move();  // basic movement implementation
         RotatePlayer();
+
+        // weapon will shoot as long as the user holds down left mouse button 
+        if (Input.GetMouseButton(0))
+        {
+            // weapon?.Shoot() - instead of weapon != null, operator ? will implicitly check != null and only then call Shoot
+            if (weapon != null)
+            {
+                weapon.Shoot();
+            }
+        }
     }
 
     private void FixedUpdate()
