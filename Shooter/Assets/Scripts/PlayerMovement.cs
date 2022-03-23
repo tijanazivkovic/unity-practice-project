@@ -46,8 +46,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        Vector3 changePostition = new Vector3(horizontal, 0f, vertical);
-        transform.Translate(changePostition * Time.deltaTime * speed);
+        Vector3 changePosition = new Vector3(horizontal, 0f, vertical);
+        transform.Translate(changePosition * Time.deltaTime * speed);
     }
 
     private void OnDestroy()
