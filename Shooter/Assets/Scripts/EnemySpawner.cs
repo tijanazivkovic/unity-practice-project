@@ -34,6 +34,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i=0; i<numberOfEnemies; i++)
         {
             GameObject enemy = SpawnEnemy();
+            enemy.gameObject.GetComponent<Enemy>().player = GameObject.FindGameObjectWithTag("Player");
             spawnedEnemies.Add(enemy);
         }
 
