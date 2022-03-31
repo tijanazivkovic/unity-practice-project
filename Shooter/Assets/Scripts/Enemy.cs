@@ -10,6 +10,7 @@ public class Enemy : NPC
     void Start()
     {
         navMeshAgent.speed = moveSpeed;
+        SetHealth(100);
     }
 
     // Update is called once per frame
