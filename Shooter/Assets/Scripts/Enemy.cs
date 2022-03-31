@@ -6,6 +6,15 @@ public class Enemy : NPC
 {
     public float moveSpeed = 1f;
 
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            Debug.Log("Player is NULL!!!");
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
