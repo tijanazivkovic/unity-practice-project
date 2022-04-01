@@ -6,6 +6,7 @@ public class BaseCharacter : MonoBehaviour, IDamageable
 {
     private int health;
     public int Health { get { return health; } }
+    public void SetHealth(int h) { health = h; }
 
     public void Die()
     {

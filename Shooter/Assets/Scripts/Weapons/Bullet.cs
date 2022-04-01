@@ -19,6 +19,12 @@ public class Bullet : MonoBehaviour
         {
             // Destroy(this); will destroy the Bullet component, which is not what we want here
             Destroy(gameObject); // will destroy the bullet itself - could be called with this.gameObject - same thing
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                enemy.TakeDamage(50);
+            }
+        
         }   
     }
 }
