@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour, IDamageable
 {
-    private int health;
-    public int Health { get { return health; } }
-    public void SetHealth(int h) { health = h; }
+    private float health;
+    public float Health { get { return health; } }
+    public void SetHealth(float h) { health = h; }
 
     public void Die()
     {
         Destroy(gameObject);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)

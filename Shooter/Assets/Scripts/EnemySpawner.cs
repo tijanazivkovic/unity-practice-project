@@ -44,13 +44,15 @@ public class EnemySpawner : MonoBehaviour
     public IEnumerator SpawnCoroutine(int spawnTime)
     {
         System.Random randomIndex = new System.Random();
-
+        int id = 0;
         while (true)
         {
             int index = randomIndex.Next(0, spawnPoints.Count);
             Vector3 spawnPosition = spawnPoints[index].position;
 
             GameObject instantiatedEnemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
+            instantiatedEnemy.GetComponent<Enemy>().SetEnemyId(id);
+            id++;
             // instead of setting the Player field to instantiated enemy here
             // it can be done in the Enemy script, in Awake by finding the Player via tag
             // Enemy enemyScript = instantiatedEnemy.GetComponent<Enemy>();

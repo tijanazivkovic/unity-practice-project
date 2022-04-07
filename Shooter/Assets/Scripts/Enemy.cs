@@ -5,6 +5,11 @@ using UnityEngine;
 public class Enemy : NPC
 {
     public float moveSpeed = 1f;
+    private int id;
+    public void SetEnemyId(int i)
+    {
+        id = i;
+    }
 
     private void Awake()
     {
